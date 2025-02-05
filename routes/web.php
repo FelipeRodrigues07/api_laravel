@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {    //fica dentro de resources dentro, welcome, blade 
-    return view('welcome');
-});
+// Route::get('/', function () {    //fica dentro de resources dentro, welcome, blade 
+//     return view('welcome');
+// });
 
 
 Route::any('/any', function(){
@@ -27,9 +28,9 @@ Route::match(['get', 'post'], '/match', function () {
 });
 
 
-Route::get('/produto/{id}/{cat?}', function ($id, $cat = '') {
-    return "O ID do produto é: {$id}  <br> A categoria é {$cat}";
-});
+// Route::get('/produto/{id}/{cat?}', function ($id, $cat = '') {
+//     return "O ID do produto é: {$id}  <br> A categoria é {$cat}";
+// });
 
 // Route::get('/sobre', function(){
 //     return redirect('/empresa');
@@ -78,21 +79,28 @@ Route::get('/novidades', function(){
 //     })->name('clientes');
 // });
 
-Route::get('/teste', function(){
-    return redirect()->route('admin.clientes');
-});
+// Route::get('/teste', function(){
+//     return redirect()->route('admin.clientes');
+// });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
-    Route::get('dashboard', function(){
-        return "dashboard";
-    })->name('dashboard');
+// Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+//     Route::get('dashboard', function(){
+//         return "dashboard";
+//     })->name('dashboard');
     
-    Route::get('users', function(){
-        return "users";
-    })->name('users');
+//     Route::get('users', function(){
+//         return "users";
+//     })->name('users');
     
-    Route::get('clientes', function(){
-        return "clientes";
-    })->name('clientes');
-});
+//     Route::get('clientes', function(){
+//         return "clientes";
+//     })->name('clientes');
+// });
+
+
+
+Route::get('/', [ProdutoController::class, 'index'])->name('produto.index');
+
+
+Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name('produto.show');
 
