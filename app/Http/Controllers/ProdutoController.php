@@ -13,8 +13,13 @@ class ProdutoController extends Controller
     public function index()
     {
         // return "index";
-        $produtos =Produto::all();  //loquent ORM
-         return dd($produtos);
+        // $produtos =Produto::all();  //loquent ORM
+        //  return dd($produtos);
+        $nome = "rodrigo";
+        $idade = 28;
+        $html = "<h1> Olá eu sou o H1</h1>";
+
+        return view('site.empresa', compact('nome', 'idade', 'html'));  
     }
 
     /**
