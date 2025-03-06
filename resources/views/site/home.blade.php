@@ -1,21 +1,25 @@
 @extends('site.layout')
-@section('title', 'Essa pagina é a HOME')
+@section('title', 'Essa página é a HOME')
 
 @section('conteudo')
-   @include('includes.mensagem', ['titulo' => 'Mensagem de sucesso'])
-   
-   @component('components.sidebar')
-       @slot('paragrafo')
-        Texto qualquer
-       @endslot
-   @endcomponent
+<div class="container mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+    @foreach ($produtos as $produto)
+    <div class="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden">
+      <div class="relative">
+          <img class="w-full h-48 object-cover" src="{{ $produto->imagem }}" alt="Imagem do Produto">
+          <div class="absolute bottom-4 left-4 text-black text-lg px-4">
+            {{ $produto->nome }}
+        </div>
+          <button class="absolute right-4 bottom-4 bg-red-500 text-white p-3 rounded-full shadow-lg hover:bg-red-600">
+              <i class="material-icons">visibility</i>
+          </button>
+      </div>
+      <div class="p-4">
+          <p class="text-gray-700">{{ $produto->descricao }}</p>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
 @endsection
-
-@push('style')
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-@endpush
-@push('script')
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-@endpush
