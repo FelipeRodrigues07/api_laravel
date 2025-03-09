@@ -7,6 +7,7 @@
         <img class="w-full h-64 object-cover" src="{{ $produto->imagem }}" alt="{{ $produto->nome }}">
         <div class="p-4">
             <h2 class="text-xl font-bold">{{ $produto->nome }}</h2>
+            <h2 class="text-xl font-bold"> R$: {{  number_format($produto->preço, 2, ',', '.') }}</h2>
             <p class="text-gray-700 mt-2">{{ $produto->descricao }}</p>
             <p class="text-gray-700 mt-2">Postado Por: {{ $produto->user->firstName}} <br>
             Categoria: {{ $produto->categoria->nome }}

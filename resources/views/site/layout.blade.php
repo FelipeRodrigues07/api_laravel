@@ -19,7 +19,7 @@
         <div class="container mx-auto flex justify-between items-center px-8">
             <a href="#" class="text-xl font-bold">Curso Laravel</a>
             <ul class="flex space-x-4">
-                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="{{ route('site.index')}}" class="hover:underline">Home</a></li>
                 <li class="relative">
                     <button onclick="toggleDropdown()" class="hover:underline flex items-center">
                         Categorias <span class="material-icons ml-1 text-sm">expand_more</span>

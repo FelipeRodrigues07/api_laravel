@@ -3,7 +3,7 @@
 
 @section('conteudo')
 <div class="container mx-auto">
-    <h3>Categoria:</h3>
+    <h3>Categoria: {{ $categoria->nome}}</h3>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8   justify-items-center ">
     @foreach ($produtos as $produto)
     <div class="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden">
