@@ -8,6 +8,9 @@
         <div class="p-4">
             <h2 class="text-xl font-bold">{{ $produto->nome }}</h2>
             <p class="text-gray-700 mt-2">{{ $produto->descricao }}</p>
+            <p class="text-gray-700 mt-2">Postado Por: {{ $produto->user->firstName}} <br>
+            Categoria: {{ $produto->categoria->nome }}
+            </p>
             <button class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4">Comprar</button>
         </div>
     </div>
