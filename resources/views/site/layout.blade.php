@@ -26,7 +26,7 @@
                     </button>
                     <ul id="dropdownCategorias" class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden">
                         @foreach ($categoriasMenu as $categoriaM)
-                        <li class="p-2 hover:bg-gray-200"><a href="#">{{ $categoriaM->nome}}</a></li>
+                        <li class="p-2 hover:bg-gray-200"><a href="{{ route('site.categoria',  $categoriaM->id )}}">{{ $categoriaM->nome}}</a></li>
                         @endforeach
                     </ul>
                 </li>
