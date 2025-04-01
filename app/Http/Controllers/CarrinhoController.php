@@ -8,8 +8,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 class CarrinhoController extends Controller
 {
     public function carrinhoLista(){
-        $items = Cart::content();
-        dd($items);
+        $itens = Cart::content();
+        // dd($itens);
+        return view('site.carrinho', compact('itens')); 
     }
 
     public function adicionaCarrinho(Request $request){

@@ -30,7 +30,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="#" class="hover:underline">Carrinho</a></li>
+                <li><a href="{{ route('site.carrinho')}}" class="hover:underline">Carrinho</a></li>
             </ul>
         </div>
     </nav>
