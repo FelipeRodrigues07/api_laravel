@@ -2,6 +2,21 @@
 @section('title', 'Carrinho')
 
 @section('conteudo')
+@if(session('success'))
+    <div id="success-message" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg text-sm z-50 transition-opacity duration-500">
+        {{ session('success') }}
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const message = document.getElementById('success-message');
+            if (message) {
+                message.style.opacity = '0';
+                setTimeout(() => message.remove(), 500);
+            }
+        }, 3000); 
+    </script>
+@endif
 <div class="container mx-auto mt-8">
     <h3 class="text-xl font-bold mb-4">Seu carrinho possui: {{$itens->count()}} produtos.</h3>
 
@@ -26,7 +41,7 @@
                 </td>
                 <td class="py-2 px-4">{{ $item->name }}</td>
                 <td class="py-2 px-4 text-center">R$ {{ number_format($item->price, 2, ',', '.') }}</td>
-                <td class="py-2 px-4"><input type="number" name="quantity" value="{{$item->quantity }}"></td>
+                <td class="py-2 px-4"><input type="number" name="quantity" value="{{ $item->qty }}"></td>
                 {{-- <td class="py-2 px-4 text-center">R$ {{ number_format($produto->price * $produto->qty, 2, ',', '.') }}</td> --}}
                 <td class="py-2 px-4 text-center">
                         <button type="submit" class="text-blue-500">
